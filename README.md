@@ -19,6 +19,16 @@ pip install behave
 pip install sauceclient
 ```
 
+"
+{
+  "platformName": "Android",
+  "automationName": "UiAutomator2",
+  "deviceName": "Awsomedroid",
+  "app": "/home/jonathan/Dev/Study/python/appium-python-bdd/apps/android/app-us-qa.apk"
+}
+
+"
+
 Usage: 
 
 You may limit the test cases using tags

@@ -12,18 +12,16 @@ def before_feature(context, feature):
     if 'android' in feature.tags:
         app = os.path.join(os.path.dirname(__file__),
                            '../apps/android',
-                           'com.imdb.mobile.apk')
+                           'app-us-qa.apk')
         app = os.path.abspath(app)
         context.driver = webdriver.Remote(
             command_executor='http://127.0.0.1:4723/wd/hub',
             desired_capabilities={
                 'app' : app,
                 'platformName' : 'Android',
-                # 'platformVersion' : '4.4',
                 'deviceName' : "emulator-5554",
-                # 'udid' : '01a135891395669f',
-                'appActivity' : '.HomeActivity',
-                'appPackage' : 'com.imdb.mobile'
+                'appActivity' : 'com.abinbev.android.tapwiser.app.StartupActivity',
+                'appPackage' : 'com.abi.bees.us.qa'
             }
         )
 def after_feature(context, feature):

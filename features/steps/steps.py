@@ -1,7 +1,6 @@
 from behave import given, when, then # pylint: disable=no-name-in-module
 from time import sleep
-from appium import webdriver
-
+from appium import webdriver    
 
 @given('button found')
 def button_found(context):
@@ -25,7 +24,6 @@ def swipe_should(context):
     location = el.location
     context.driver.swipe(start_x=location['x'], start_y=location['y'],
                          end_x=0.5, end_y=location['y'], duration=800)
-
 
 
 @given("user is logged in with correct credientials")
@@ -102,6 +100,18 @@ def step_impl(context, email):
     context.driver.find_element_by_id('com.android.email:id/send').click()
 
 
-
+@step("open page")
+def step_impl(context):
+    sleep(2)
+    context.driver.find_element_by_accessibility_id("Login").click()
+    # context.driver.find_element_by_accessibility_id("Email Address Login").click()
+    # # el2.click()
+    # el2.send_keys("jonathans@ciandt.com")
+    # el3 = context.driver.find_element_by_accessibility_id("Password")
+    # el3.click()
+    # el3.send_keys("password")
+    # el4 = context.driver.find_element_by_accessibility_id("Login")
+    # el4.click()
+    
 if __name__ == '__main__':
     context.driver = webdriver.Remote()
