@@ -11,7 +11,7 @@ def before_all(context):
 def before_feature(context, feature):
     if 'android' in feature.tags:
         app = os.path.join(os.path.dirname(__file__),
-                           '../apps/Imdb/android',
+                           '../apps/android',
                            'com.imdb.mobile.apk')
         app = os.path.abspath(app)
         context.driver = webdriver.Remote(

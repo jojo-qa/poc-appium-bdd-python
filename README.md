@@ -21,11 +21,6 @@ pip install sauceclient
 
 Usage: 
 
-```shell
-# In order to select configuration you need to set tags in execution
-behave ios_simple.feature
-```
-
 You may limit the test cases using tags
 ```shell
 behave --tags=current android.feature
