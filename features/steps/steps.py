@@ -104,7 +104,7 @@ def step_impl(context, email):
 def step_impl(context):
     sleep(2)
     context.driver.find_element_by_accessibility_id("Login").click()
-    # context.driver.find_element_by_accessibility_id("Email Address Login").click()
+    context.driver.find_element_by_accessibility_id[contains("Email Address Login")].click()
     # # el2.click()
     # el2.send_keys("jonathans@ciandt.com")
     # el3 = context.driver.find_element_by_accessibility_id("Password")
