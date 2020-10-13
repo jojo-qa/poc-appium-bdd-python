@@ -50,7 +50,7 @@ echo "############ 3 - Installing Nodejs ############"
 if [ $(which node)  ]; then
   echo "Node Already installed"
 fi
-else
+
   echo "Installing node"
   yes | sudo apt-get install build-essential
   yes | sudo apt-get install python3-distutils
