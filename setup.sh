@@ -49,6 +49,7 @@ echo "############ 3 - Installing Nodejs ############"
 # 3.1 - python3 utils is required to install node at first time
 if [ $(which node)  ]; then
   echo "Node Already installed"
+fi
 else
   echo "Installing node"
   yes | sudo apt-get install build-essential
