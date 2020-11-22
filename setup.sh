@@ -2,10 +2,10 @@
 
 # Functions
 
-add_var_to_bashrc(){
+add_var_to_bashrc() {
   var_name=$1
   if [[ $(cat ~/.profile | grep "export "$1 -c) -eq 0 ]]; then
-    echo 'export' $1 >> ~/.profile
+    echo 'export' $1 >>~/.profile
     echo "$1 added"
   else
     echo $1" already added"
@@ -13,10 +13,10 @@ add_var_to_bashrc(){
   source ~/.profile
 }
 
-add_var_to_path(){
+add_var_to_path() {
   var_name=$1
   if [[ $(cat ~/.profile | grep "export PATH+=:"$1 -c) -eq 0 ]]; then
-    echo 'export PATH+=:'$1 >> ~/.profile
+    echo 'export PATH+=:'$1 >>~/.profile
     echo "$1 added to PATH"
   else
     echo $1 "already added to PATH"
@@ -33,9 +33,9 @@ echo "############ 1 - Installing Android Studio ############"
 
 FILE=$HOME/Android/Sdk/licenses/android-sdk-license
 if [ ! -f "$FILE" ]; then
-    echo "$FILE Android studio already installed."
+  echo "$FILE Android studio already installed."
 else
-    sudo snap install android-studio --classic
+  sudo snap install android-studio --classic
 fi
 echo "Android Studio installed"
 
@@ -47,20 +47,20 @@ yes | sudo apt-get install openjdk-8-jdk
 echo "############ 3 - Installing Nodejs ############"
 # 3- Node JS
 # 3.1 - python3 utils is required to install node at first time
-if [ $(which node)  ]; then
+if [ $(which node) ]; then
   echo "Node Already installed"
-fi
-
+else
   echo "Installing node"
   yes | sudo apt-get install build-essential
   yes | sudo apt-get install python3-distutils
-  
+
   curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.34.0/install.sh | bash
 
   nvm install node
 
-npm install -g n
-n latest
+  npm install -g n
+  n latest
+fi
 
 echo "############ Adding Vars to profile and path ############"
 add_var_to_bashrc "ANDROID_HOME=$HOME/Android/Sdk"
