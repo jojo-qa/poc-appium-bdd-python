@@ -54,19 +54,10 @@ fi
   echo "Installing node"
   yes | sudo apt-get install build-essential
   yes | sudo apt-get install python3-distutils
-  mkdir $HOME/local
-  mkdir $HOME/local/node_modules
+  
+  curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.34.0/install.sh | bash
 
-  #PATH="$PATH:$HOME/local/bin"
-  #PATH="$PATH:$HOME/node/bin"
-  add_var_to_path "$HOME/node/bin"
-  add_var_to_path "$HOME/local/bin"
-  #NODE_PATH="$HOME/local/:$HOME/local/node_modules"
-  #N_PREFIX="$HOME/node"
-  add_var_to_bashrc 'N_PREFIX="$HOME/node"'
-  add_var_to_bashrc 'NODE_PATH="$HOME/local/:$HOME/local/node_modules"'
-
-  sudo snap install node --classic
+  nvm install node
 
 npm install -g n
 n latest
